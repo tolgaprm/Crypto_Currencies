@@ -4,6 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools">
 
 
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.inflames.curenciesviewmodel.currencylistscreen.CryptoListViewModel" />
+    </data>
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -30,14 +37,27 @@
 
         </com.google.android.material.textfield.TextInputLayout>
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_marginTop="8dp"
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/lottieAnimationView"
+            showAnimation="@{viewModel.status}"
+            android:layout_width="wrap_content"
+            android:layout_height="620dp"
+            android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/filledTextField" />
+            app:layout_constraintTop_toBottomOf="@+id/filledTextField"
+            app:lottie_loop="true" />
+
+
+        <!--   <androidx.recyclerview.widget.RecyclerView
+               android:layout_width="match_parent"
+               android:layout_height="0dp"
+               android:layout_marginTop="8dp"
+               app:layout_constraintBottom_toBottomOf="parent"
+               app:layout_constraintEnd_toEndOf="parent"
+               app:layout_constraintStart_toStartOf="parent"
+               app:layout_constraintTop_toBottomOf="@+id/filledTextField" /> !-->
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
