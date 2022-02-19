@@ -6,8 +6,6 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.inflames.curenciesviewmodel.currencylistscreen.repository.CryptoListRepository
 import com.inflames.curenciesviewmodel.enums.CryptoApiStatus
-import com.inflames.curenciesviewmodel.model.CryptoModel
-import com.inflames.curenciesviewmodel.network.CryptoService
 import kotlinx.coroutines.launch
 import timber.log.Timber
 
@@ -19,8 +17,8 @@ class CryptoListViewModel : ViewModel() {
     val status: LiveData<CryptoApiStatus> get() = _status
 
     private val cryptoListRepository = CryptoListRepository()
-    val list = cryptoListRepository.cryptoList
-
+    var list = cryptoListRepository.cryptoList
+    val cryptoThatSearching = MutableLiveData<String>("")
 
     init {
         getCryptoList()
@@ -37,10 +35,16 @@ class CryptoListViewModel : ViewModel() {
             } catch (e: Exception) {
                 Timber.e("Caught exception while it is getting from internet, Exception:  " + e.localizedMessage)
                 _status.value = CryptoApiStatus.ERROR
+
             }
 
 
         }
+    }
+
+    fun updateCryptoList() {
+        cryptoListRepository._cryptoList.value = ArrayList()
+        getCryptoList()
     }
 
 

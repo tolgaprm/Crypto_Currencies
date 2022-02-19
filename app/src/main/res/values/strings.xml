@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">Currencies</string>
-    <string name="decsription_app_s_logo">App\'s Logo</string>
+    <string name="desc_app_s_logo">App\'s Logo</string>
     <string name="currency_name">Currency Name</string>
+    <string name="crypto_image">Crypto Image</string>
 
 </resources>

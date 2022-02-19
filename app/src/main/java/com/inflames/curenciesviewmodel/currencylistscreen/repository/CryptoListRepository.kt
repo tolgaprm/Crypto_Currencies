@@ -10,7 +10,7 @@ import kotlinx.coroutines.withContext
 
 class CryptoListRepository {
 
-    private val _cryptoList = MutableLiveData<List<CryptoModel>>()
+     val _cryptoList = MutableLiveData<List<CryptoModel>>(listOf())
     val cryptoList: LiveData<List<CryptoModel>>
         get() = _cryptoList
 

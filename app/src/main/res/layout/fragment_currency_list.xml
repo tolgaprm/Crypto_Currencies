@@ -11,54 +11,69 @@
             type="com.inflames.curenciesviewmodel.currencylistscreen.CryptoListViewModel" />
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swapRefleshLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".currencylistscreen.CurrencyListFragment">
+        app:isRefreshing="@{viewModel.status}"
+        app:onRefreshListener="@{()->viewModel.updateCryptoList()}">
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/filledTextField"
+
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="65dp"
-            android:layout_marginHorizontal="16dp"
-            android:layout_marginTop="16dp"
-            android:hint="@string/currency_name"
-            android:textColorHint="?attr/colorPrimary"
-            app:hintTextAppearance="@style/TextAppearance.AppCompat.Widget.ActionMode.Subtitle"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            android:layout_height="match_parent"
+            tools:context=".currencylistscreen.CurrencyListFragment">
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/edTCurrencyName"
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/filledTextField"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                tools:text="BTC" />
+                android:layout_height="65dp"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginTop="16dp"
+                android:hint="@string/currency_name"
+                android:textColorHint="?attr/colorPrimary"
+                app:hintTextAppearance="@style/TextAppearance.AppCompat.Widget.ActionMode.Subtitle"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
 
-        </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edTCurrencyName"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="@={viewModel.cryptoThatSearching}"
+                    tools:text="BTC" />
 
-        <com.airbnb.lottie.LottieAnimationView
-            android:id="@+id/lottieAnimationView"
-            showAnimation="@{viewModel.status}"
-            android:layout_width="wrap_content"
-            android:layout_height="620dp"
-            android:visibility="gone"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/filledTextField"
-            app:lottie_loop="true" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.airbnb.lottie.LottieAnimationView
+                android:id="@+id/lottieAnimationView"
+                app:showAnimation="@{viewModel.status}"
+                android:layout_width="wrap_content"
+                android:layout_height="620dp"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/filledTextField"
+                app:lottie_loop="true" />
 
 
-        <!--   <androidx.recyclerview.widget.RecyclerView
-               android:layout_width="match_parent"
-               android:layout_height="0dp"
-               android:layout_marginTop="8dp"
-               app:layout_constraintBottom_toBottomOf="parent"
-               app:layout_constraintEnd_toEndOf="parent"
-               app:layout_constraintStart_toStartOf="parent"
-               app:layout_constraintTop_toBottomOf="@+id/filledTextField" /> !-->
+               <androidx.recyclerview.widget.RecyclerView
+                   android:id="@+id/recyclerView"
+                   android:layout_width="match_parent"
+                   android:layout_height="0dp"
+                   android:layout_marginTop="8dp"
+                   app:bindList="@{viewModel.list}"
+                   app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                   app:layout_constraintBottom_toBottomOf="parent"
+                   app:layout_constraintEnd_toEndOf="parent"
+                   app:layout_constraintStart_toStartOf="parent"
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+                   app:layout_constraintTop_toBottomOf="@+id/filledTextField"
+                   tools:listitem="@layout/crypto_row_item" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
 </layout>
