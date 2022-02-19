@@ -1,7 +1,6 @@
 package com.inflames.curenciesviewmodel.currencylistscreen
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,7 +9,6 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.inflames.curenciesviewmodel.currencylistscreen.adapter.CryptoListAdapter
 import com.inflames.curenciesviewmodel.databinding.FragmentCurrencyListBinding
-import com.inflames.curenciesviewmodel.enums.CryptoApiStatus
 import timber.log.Timber
 
 
@@ -18,7 +16,11 @@ class CurrencyListFragment : Fragment() {
 
     private var _binding: FragmentCurrencyListBinding? = null
     private val binding get() = _binding!!
-    private val viewModel: CryptoListViewModel by lazy { ViewModelProvider(this)[CryptoListViewModel::class.java] }
+    private val viewModel: CryptoListViewModel by lazy {
+        val activity = requireNotNull(this.activity) {}
+        ViewModelProvider(this, CryptoListFactory(activity.application))
+            .get(CryptoListViewModel::class.java)
+    }
     private val adapter: CryptoListAdapter by lazy { CryptoListAdapter() }
 
     override fun onCreateView(
@@ -32,9 +34,6 @@ class CurrencyListFragment : Fragment() {
         binding.viewModel = viewModel
         binding.recyclerView.adapter = adapter
 
-        viewModel.cryptoThatSearching.observe(viewLifecycleOwner, Observer {
-            Timber.d(it)
-        })
         return binding.root
     }
 

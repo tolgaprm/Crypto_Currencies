@@ -10,6 +10,7 @@ import coil.ImageLoader
 import coil.decode.SvgDecoder
 import coil.request.ImageRequest
 import com.airbnb.lottie.LottieAnimationView
+import com.google.android.material.textfield.TextInputEditText
 import com.inflames.curenciesviewmodel.R
 import com.inflames.curenciesviewmodel.currencylistscreen.adapter.CryptoListAdapter
 import com.inflames.curenciesviewmodel.enums.CryptoApiStatus
@@ -23,8 +24,6 @@ fun showAnimation(
     lottieAnimationView: LottieAnimationView,
     apiStatus: CryptoApiStatus?,
 ) {
-
-
     when (apiStatus) {
         CryptoApiStatus.ERROR -> {
             lottieAnimationView.visibility = View.VISIBLE
@@ -38,8 +37,8 @@ fun showAnimation(
             lottieAnimationView.playAnimation()
 
         }
+        CryptoApiStatus.DONE -> lottieAnimationView.visibility = View.GONE
         else -> lottieAnimationView.visibility = View.GONE
-
     }
 }
 
@@ -79,9 +78,13 @@ fun numberFormat(textView: TextView, price: String) {
 
 
 @BindingAdapter("bindList")
-fun bindList(recyclerView: RecyclerView, cryptoList: List<CryptoModel>) {
-    val adapter = recyclerView.adapter as CryptoListAdapter
-    adapter.submitList(cryptoList)
+fun bindList(recyclerView: RecyclerView, cryptoList: List<CryptoModel>?) {
+
+    if (!cryptoList.isNullOrEmpty()) {
+        val adapter = recyclerView.adapter as CryptoListAdapter
+        adapter.submitList(cryptoList)
+    }
+
 
 }
 
@@ -107,6 +110,7 @@ fun onRefreshListener(
     when (apiStatus) {
         CryptoApiStatus.LOADING -> swipeRefreshLayout.isRefreshing = true
         CryptoApiStatus.DONE -> swipeRefreshLayout.isRefreshing = false
+        CryptoApiStatus.ERROR -> swipeRefreshLayout.isRefreshing = false
         else -> swipeRefreshLayout.isRefreshing = false
     }
 

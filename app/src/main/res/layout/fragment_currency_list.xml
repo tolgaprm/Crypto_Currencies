@@ -24,28 +24,6 @@
             android:layout_height="match_parent"
             tools:context=".currencylistscreen.CurrencyListFragment">
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/filledTextField"
-                android:layout_width="match_parent"
-                android:layout_height="65dp"
-                android:layout_marginHorizontal="16dp"
-                android:layout_marginTop="16dp"
-                android:hint="@string/currency_name"
-                android:textColorHint="?attr/colorPrimary"
-                app:hintTextAppearance="@style/TextAppearance.AppCompat.Widget.ActionMode.Subtitle"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/edTCurrencyName"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:text="@={viewModel.cryptoThatSearching}"
-                    tools:text="BTC" />
-
-            </com.google.android.material.textfield.TextInputLayout>
-
             <com.airbnb.lottie.LottieAnimationView
                 android:id="@+id/lottieAnimationView"
                 app:showAnimation="@{viewModel.status}"

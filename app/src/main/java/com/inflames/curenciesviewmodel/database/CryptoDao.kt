@@ -1,8 +1,10 @@
 package com.inflames.curenciesviewmodel.database
 
-import android.content.Context
 import androidx.lifecycle.LiveData
-import androidx.room.*
+import androidx.room.Dao
+import androidx.room.Insert
+import androidx.room.OnConflictStrategy
+import androidx.room.Query
 
 
 @Dao
@@ -14,35 +16,13 @@ interface CryptoDao {
     @Query("SELECT * FROM crypto_database")
     fun getCryptos(): LiveData<List<CryptoDatabaseModel>>
 
-}
-
-abstract class CryptoDatabase : RoomDatabase() {
-
-    abstract val cryptoDao: CryptoDao
+    @Query("SELECT * FROM crypto_database WHERE name LIKE :name ")
+    fun getCryptoThatSearching(name: String): LiveData<List<CryptoDatabaseModel>>
 
 
-    companion object {
-
-        @Volatile
-        private var INSTANCE: CryptoDatabase? = null
-
-        fun getDatabase(context: Context): CryptoDatabase {
-
-            var instance = INSTANCE
-            synchronized(this) {
-                if (instance == null) {
-                    instance =
-                        Room.databaseBuilder(context, CryptoDatabase::class.java, "Crypto_database")
-                            .build()
-
-                    INSTANCE = instance
-                }
-            }
-
-            return instance!!
-        }
-    }
 
 }
+
+
 
 
