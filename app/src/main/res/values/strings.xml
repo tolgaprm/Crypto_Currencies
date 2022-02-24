@@ -3,5 +3,8 @@
     <string name="desc_app_s_logo">App\'s Logo</string>
     <string name="currency_name">Currency Name</string>
     <string name="crypto_image">Crypto Image</string>
+    <string name="website">Website</string>
+    <string name="github">Github</string>
+    <string name="description">Description</string>
 
 </resources>

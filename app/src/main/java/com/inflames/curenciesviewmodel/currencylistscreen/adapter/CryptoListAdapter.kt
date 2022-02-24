@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.inflames.curenciesviewmodel.databinding.CryptoRowItemBinding
 import com.inflames.curenciesviewmodel.model.CryptoModel
 
-class CryptoListAdapter :
+class CryptoListAdapter(private val onClickListener: OnClickListener) :
     ListAdapter<CryptoModel, CryptoListAdapter.CryptoViewHolder>(CryptoDiffCallBack()) {
 
     class CryptoViewHolder(val binding: CryptoRowItemBinding) :
@@ -34,10 +34,22 @@ class CryptoListAdapter :
 
     override fun onBindViewHolder(holder: CryptoViewHolder, position: Int) {
         val cryptoModel = getItem(position)
+
+        holder.itemView.setOnClickListener {
+            onClickListener.onClick(cryptoModel)
+        }
         holder.bind(cryptoModel)
 
+
     }
+
+
+    class OnClickListener(val clickListener: (cryptoModel: CryptoModel) -> Unit) {
+        fun onClick(cryptoModel: CryptoModel) = clickListener(cryptoModel)
+    }
+
 }
+
 
 class CryptoDiffCallBack : DiffUtil.ItemCallback<CryptoModel>() {
     override fun areItemsTheSame(oldItem: CryptoModel, newItem: CryptoModel): Boolean {

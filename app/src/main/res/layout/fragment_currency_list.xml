@@ -8,14 +8,13 @@
 
         <variable
             name="viewModel"
-            type="com.inflames.curenciesviewmodel.currencylistscreen.CryptoListViewModel" />
+            type="com.inflames.curenciesviewmodel.currencylistscreen.viewmodel.CryptoListViewModel" />
     </data>
 
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
         android:id="@+id/swapRefleshLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:isRefreshing="@{viewModel.status}"
         app:onRefreshListener="@{()->viewModel.updateCryptoList()}">
 
 
@@ -26,30 +25,28 @@
 
             <com.airbnb.lottie.LottieAnimationView
                 android:id="@+id/lottieAnimationView"
-                app:showAnimation="@{viewModel.status}"
                 android:layout_width="wrap_content"
                 android:layout_height="620dp"
                 android:visibility="gone"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/filledTextField"
-                app:lottie_loop="true" />
+                app:lottie_loop="true"
+                app:showAnimation="@{viewModel.status}" />
 
 
-               <androidx.recyclerview.widget.RecyclerView
-                   android:id="@+id/recyclerView"
-                   android:layout_width="match_parent"
-                   android:layout_height="0dp"
-                   android:layout_marginTop="8dp"
-                   app:bindList="@{viewModel.list}"
-                   app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                   app:layout_constraintBottom_toBottomOf="parent"
-                   app:layout_constraintEnd_toEndOf="parent"
-                   app:layout_constraintStart_toStartOf="parent"
-
-                   app:layout_constraintTop_toBottomOf="@+id/filledTextField"
-                   tools:listitem="@layout/crypto_row_item" />
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginTop="8dp"
+                app:bindList="@{viewModel.list}"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:listitem="@layout/crypto_row_item" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>

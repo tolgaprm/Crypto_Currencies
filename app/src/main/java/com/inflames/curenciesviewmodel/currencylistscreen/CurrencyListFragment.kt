@@ -7,9 +7,11 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import com.inflames.curenciesviewmodel.currencylistscreen.adapter.CryptoListAdapter
+import com.inflames.curenciesviewmodel.currencylistscreen.viewmodel.CryptoListFactory
+import com.inflames.curenciesviewmodel.currencylistscreen.viewmodel.CryptoListViewModel
 import com.inflames.curenciesviewmodel.databinding.FragmentCurrencyListBinding
-import timber.log.Timber
 
 
 class CurrencyListFragment : Fragment() {
@@ -21,7 +23,7 @@ class CurrencyListFragment : Fragment() {
         ViewModelProvider(this, CryptoListFactory(activity.application))
             .get(CryptoListViewModel::class.java)
     }
-    private val adapter: CryptoListAdapter by lazy { CryptoListAdapter() }
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -30,9 +32,23 @@ class CurrencyListFragment : Fragment() {
         // Inflate the layout for this fragment
         _binding = FragmentCurrencyListBinding.inflate(layoutInflater)
 
+        val adapter = CryptoListAdapter(CryptoListAdapter.OnClickListener {
+            viewModel.displayDetail(it)
+        })
+
         binding.lifecycleOwner = viewLifecycleOwner
         binding.viewModel = viewModel
         binding.recyclerView.adapter = adapter
+
+        viewModel.navigateToSelectedProperty.observe(viewLifecycleOwner, Observer { it ->
+            if (it.id != "completed") {
+                findNavController().navigate(
+                    CurrencyListFragmentDirections.actionCurrencyListFragmentToCurrencyDetail(it)
+                )
+
+                viewModel.displayDetailComplete()
+            }
+        })
 
         return binding.root
     }

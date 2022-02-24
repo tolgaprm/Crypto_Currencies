@@ -37,7 +37,10 @@ fun showAnimation(
             lottieAnimationView.playAnimation()
 
         }
-        CryptoApiStatus.DONE -> lottieAnimationView.visibility = View.GONE
+        CryptoApiStatus.DONE -> {
+            lottieAnimationView.visibility = View.GONE
+            lottieAnimationView.cancelAnimation()
+        }
         else -> lottieAnimationView.visibility = View.GONE
     }
 }
@@ -69,11 +72,14 @@ fun downloadImage(imageView: ImageView, imageUrl: String?) {
 
 
 @BindingAdapter("numberFormat")
-fun numberFormat(textView: TextView, price: String) {
+fun numberFormat(textView: TextView, price: String?) {
 
-    val dPrice = price.toDouble()
-    val formattedPrice = NumberFormat.getCurrencyInstance(Locale.US).format(dPrice)
-    textView.text = formattedPrice
+    price?.let {
+        val dPrice = price.toDouble()
+        val formattedPrice = NumberFormat.getCurrencyInstance(Locale.US).format(dPrice)
+        textView.text = formattedPrice
+    }
+
 }
 
 
@@ -95,24 +101,37 @@ fun onRefreshListener(
 ) {
 
     swipeRefreshLayout.setOnRefreshListener {
+        swipeRefreshLayout.isRefreshing = false
         refresh.invoke()
     }
 
 
 }
 
-@BindingAdapter("isRefreshing")
-fun onRefreshListener(
-    swipeRefreshLayout: SwipeRefreshLayout,
-    apiStatus: CryptoApiStatus
-) {
 
-    when (apiStatus) {
-        CryptoApiStatus.LOADING -> swipeRefreshLayout.isRefreshing = true
-        CryptoApiStatus.DONE -> swipeRefreshLayout.isRefreshing = false
-        CryptoApiStatus.ERROR -> swipeRefreshLayout.isRefreshing = false
-        else -> swipeRefreshLayout.isRefreshing = false
+@BindingAdapter("description")
+fun description(editText: TextInputEditText, description: String?) {
+
+    description?.let {
+        editText.visibility = View.VISIBLE
+        editText.setText(it)
+        editText.isEnabled = false
     }
+}
+
+@BindingAdapter("isHaveUrl")
+fun isHaveUrl(imageView: ImageView, url: String?) {
+
+    if (url==null){
+        imageView.visibility = View.GONE
+    }else {
+        if (url == "") {
+            imageView.visibility = View.GONE
+        } else {
+            imageView.visibility = View.VISIBLE
+        }
+    }
+
 
 
 }

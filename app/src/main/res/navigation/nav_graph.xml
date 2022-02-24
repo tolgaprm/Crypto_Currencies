@@ -4,12 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
     app:startDestination="@id/currencyListFragment">
-
     <fragment
         android:id="@+id/currencyListFragment"
         android:name="com.inflames.curenciesviewmodel.currencylistscreen.CurrencyListFragment"
-        android:label="CurrencyListFragment"
-        tools:layout="@layout/fragment_currency_list" >
+        android:label="CurrencyListFragment" >
         <action
             android:id="@+id/action_currencyListFragment_to_currencyDetail"
             app:destination="@id/currencyDetail" />
@@ -17,6 +15,8 @@
     <fragment
         android:id="@+id/currencyDetail"
         android:name="com.inflames.curenciesviewmodel.currencydetailscreen.CurrencyDetail"
-        android:label="CurrencyDetail"
-        tools:layout="@layout/fragment_currency_detail" />
+        android:label="CurrencyDetail" >
+        <argument android:name="cryptoModel"
+            app:argType="com.inflames.curenciesviewmodel.model.CryptoModel" />
+    </fragment>
 </navigation>

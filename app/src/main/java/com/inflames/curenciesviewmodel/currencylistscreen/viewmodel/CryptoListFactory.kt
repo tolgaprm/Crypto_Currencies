@@ -1,4 +1,4 @@
-package com.inflames.curenciesviewmodel.currencylistscreen
+package com.inflames.curenciesviewmodel.currencylistscreen.viewmodel
 
 import android.app.Application
 import androidx.lifecycle.ViewModel
