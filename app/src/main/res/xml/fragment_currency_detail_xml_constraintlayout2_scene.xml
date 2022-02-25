@@ -93,46 +93,7 @@
             motion:layout_constraintEnd_toEndOf="parent"
             motion:layout_constraintStart_toStartOf="parent"
             motion:layout_constraintTop_toBottomOf="@id/textCryptoPrice" />
-        <Constraint
-            android:id="@+id/textWebSite"
-            motion:layout_constraintEnd_toEndOf="parent"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:visibility="gone"
-            motion:layout_constraintTop_toBottomOf="@+id/filledTextField"
-            motion:layout_constraintHorizontal_bias="0.197"
-            motion:layout_constraintStart_toStartOf="parent"
-            android:layout_marginTop="16dp" />
-        <Constraint
-            android:id="@+id/textGithub"
-            motion:layout_constraintEnd_toEndOf="parent"
-            motion:layout_constraintStart_toEndOf="@+id/textWebSite"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:visibility="gone"
-            motion:layout_constraintTop_toBottomOf="@+id/filledTextField"
-            motion:layout_constraintHorizontal_bias="0.605"
-            android:layout_marginTop="16dp" />
-        <Constraint
-            android:id="@+id/imgWebSite"
-            motion:layout_constraintEnd_toEndOf="@+id/textWebSite"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:visibility="gone"
-            motion:layout_constraintTop_toBottomOf="@+id/textWebSite"
-            motion:layout_constraintHorizontal_bias="0.0"
-            motion:layout_constraintStart_toStartOf="@+id/textWebSite"
-            android:layout_marginTop="8dp" />
-        <Constraint
-            android:id="@+id/imgGithub"
-            motion:layout_constraintEnd_toEndOf="@+id/textGithub"
-            android:layout_width="66dp"
-            android:layout_height="64dp"
-            android:visibility="gone"
-            motion:layout_constraintTop_toBottomOf="@+id/textGithub"
-            motion:layout_constraintHorizontal_bias="0.0"
-            motion:layout_constraintStart_toStartOf="@+id/textGithub"
-            android:layout_marginTop="8dp" />
+
 
     </ConstraintSet>
 </MotionScene>
