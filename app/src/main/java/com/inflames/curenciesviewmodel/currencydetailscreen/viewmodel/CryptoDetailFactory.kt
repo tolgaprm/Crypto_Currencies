@@ -3,7 +3,7 @@ package com.inflames.curenciesviewmodel.currencydetailscreen.viewmodel
 import android.app.Application
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.inflames.curenciesviewmodel.model.CryptoModel
+import com.inflames.curenciesviewmodel.network.entity.CryptoModel
 
 class CryptoDetailFactory(val app: Application, private val clickedCryptoModelById: CryptoModel) :
     ViewModelProvider.Factory {

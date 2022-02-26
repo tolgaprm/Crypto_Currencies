@@ -4,10 +4,10 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import com.inflames.curenciesviewmodel.model.CryptoDetailDatabaseModel
-import com.inflames.curenciesviewmodel.model.CryptoDetailModel
+import com.inflames.curenciesviewmodel.database.entity.CryptoDatabaseModel
+import com.inflames.curenciesviewmodel.database.entity.CryptoDetailDatabaseModel
 
-@Database(entities = [CryptoDatabaseModel::class,CryptoDetailDatabaseModel::class], version = 6, exportSchema = false)
+@Database(entities = [CryptoDatabaseModel::class, CryptoDetailDatabaseModel::class], version = 6, exportSchema = false)
 abstract class CryptoDatabase : RoomDatabase() {
 
     abstract val cryptoDao: CryptoDao

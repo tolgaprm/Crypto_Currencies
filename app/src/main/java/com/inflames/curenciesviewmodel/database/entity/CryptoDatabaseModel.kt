@@ -1,9 +1,9 @@
-package com.inflames.curenciesviewmodel.database
+package com.inflames.curenciesviewmodel.database.entity
 
-import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import com.inflames.curenciesviewmodel.model.CryptoModel
+import com.inflames.curenciesviewmodel.network.entity.CryptoModel
+
 
 @Entity(tableName = "crypto_database")
 data class CryptoDatabaseModel(

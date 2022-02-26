@@ -6,17 +6,22 @@
         <entry key="..\:/AndroidProjects/Projelerim/Curencies View Model/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.2845" />
         <entry key="..\:/AndroidProjects/Projelerim/Curencies View Model/app/src/main/res/drawable/a.xml" value="0.226" />
         <entry key="..\:/AndroidProjects/Projelerim/Curencies View Model/app/src/main/res/drawable/ic_github.xml" value="0.3465" />
+        <entry key="..\:/AndroidProjects/Projelerim/Curencies View Model/app/src/main/res/drawable/ic_launcher_background.xml" value="0.245" />
+        <entry key="..\:/AndroidProjects/Projelerim/Curencies View Model/app/src/main/res/drawable/ic_launcher_foreground.xml" value="0.211" />
         <entry key="..\:/AndroidProjects/Projelerim/Curencies View Model/app/src/main/res/drawable/ic_logo.xml" value="0.2845" />
         <entry key="..\:/AndroidProjects/Projelerim/Curencies View Model/app/src/main/res/drawable/ic_spinner_solid.xml" value="0.3465" />
+        <entry key="..\:/AndroidProjects/Projelerim/Curencies View Model/app/src/main/res/drawable/ic_web.xml" value="0.245" />
         <entry key="..\:/AndroidProjects/Projelerim/Curencies View Model/app/src/main/res/drawable/image_view.xml" value="0.2925" />
         <entry key="..\:/AndroidProjects/Projelerim/Curencies View Model/app/src/main/res/drawable/price_background.xml" value="0.2925" />
         <entry key="..\:/AndroidProjects/Projelerim/Curencies View Model/app/src/main/res/drawable/splash_image.xml" value="0.3465" />
         <entry key="..\:/AndroidProjects/Projelerim/Curencies View Model/app/src/main/res/layout-land/fragment_currency_list.xml" value="0.33" />
         <entry key="..\:/AndroidProjects/Projelerim/Curencies View Model/app/src/main/res/layout-sw600dp/fragment_currency_list.xml" value="0.2" />
         <entry key="..\:/AndroidProjects/Projelerim/Curencies View Model/app/src/main/res/layout/activity_main.xml" value="0.30648148148148147" />
-        <entry key="..\:/AndroidProjects/Projelerim/Curencies View Model/app/src/main/res/layout/crypto_row_item.xml" value="0.5" />
-        <entry key="..\:/AndroidProjects/Projelerim/Curencies View Model/app/src/main/res/layout/fragment_currency_detail.xml" value="0.33" />
+        <entry key="..\:/AndroidProjects/Projelerim/Curencies View Model/app/src/main/res/layout/crypto_row_item.xml" value="0.25" />
+        <entry key="..\:/AndroidProjects/Projelerim/Curencies View Model/app/src/main/res/layout/fragment_currency_detail.xml" value="0.26541554959785524" />
         <entry key="..\:/AndroidProjects/Projelerim/Curencies View Model/app/src/main/res/layout/fragment_currency_list.xml" value="0.2981981981981982" />
+        <entry key="..\:/AndroidProjects/Projelerim/Curencies View Model/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.211" />
+        <entry key="..\:/AndroidProjects/Projelerim/Curencies View Model/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.211" />
       </map>
     </option>
   </component>

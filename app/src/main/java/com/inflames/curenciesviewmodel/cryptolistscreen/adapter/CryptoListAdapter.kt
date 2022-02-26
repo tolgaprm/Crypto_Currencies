@@ -1,4 +1,4 @@
-package com.inflames.curenciesviewmodel.currencylistscreen.adapter
+package com.inflames.curenciesviewmodel.cryptolistscreen.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -6,7 +6,8 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.inflames.curenciesviewmodel.databinding.CryptoRowItemBinding
-import com.inflames.curenciesviewmodel.model.CryptoModel
+import com.inflames.curenciesviewmodel.network.entity.CryptoModel
+
 
 class CryptoListAdapter(private val onClickListener: OnClickListener) :
     ListAdapter<CryptoModel, CryptoListAdapter.CryptoViewHolder>(CryptoDiffCallBack()) {

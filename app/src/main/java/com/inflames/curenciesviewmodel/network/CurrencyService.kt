@@ -1,13 +1,12 @@
 package com.inflames.curenciesviewmodel.network
 
-import com.inflames.curenciesviewmodel.model.CryptoDetailModel
-import com.inflames.curenciesviewmodel.model.CryptoModel
+import com.inflames.curenciesviewmodel.database.entity.CryptoDetailModel
+import com.inflames.curenciesviewmodel.network.entity.CryptoModel
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 import retrofit2.http.GET
-import retrofit2.http.Query
 
 const val BASE_URL = "https://api.nomics.com/v1/"
 

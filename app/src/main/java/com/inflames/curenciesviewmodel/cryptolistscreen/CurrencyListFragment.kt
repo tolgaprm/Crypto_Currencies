@@ -1,4 +1,4 @@
-package com.inflames.curenciesviewmodel.currencylistscreen
+package com.inflames.curenciesviewmodel.cryptolistscreen
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,9 +8,9 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
-import com.inflames.curenciesviewmodel.currencylistscreen.adapter.CryptoListAdapter
-import com.inflames.curenciesviewmodel.currencylistscreen.viewmodel.CryptoListFactory
-import com.inflames.curenciesviewmodel.currencylistscreen.viewmodel.CryptoListViewModel
+import com.inflames.curenciesviewmodel.cryptolistscreen.adapter.CryptoListAdapter
+import com.inflames.curenciesviewmodel.cryptolistscreen.viewmodel.CryptoListFactory
+import com.inflames.curenciesviewmodel.cryptolistscreen.viewmodel.CryptoListViewModel
 import com.inflames.curenciesviewmodel.databinding.FragmentCurrencyListBinding
 
 
@@ -20,8 +20,7 @@ class CurrencyListFragment : Fragment() {
     private val binding get() = _binding!!
     private val viewModel: CryptoListViewModel by lazy {
         val activity = requireNotNull(this.activity) {}
-        ViewModelProvider(this, CryptoListFactory(activity.application))
-            .get(CryptoListViewModel::class.java)
+        ViewModelProvider(this, CryptoListFactory(activity.application))[CryptoListViewModel::class.java]
     }
 
 

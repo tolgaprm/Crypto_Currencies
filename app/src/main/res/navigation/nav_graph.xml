@@ -6,7 +6,7 @@
     app:startDestination="@id/currencyListFragment">
     <fragment
         android:id="@+id/currencyListFragment"
-        android:name="com.inflames.curenciesviewmodel.currencylistscreen.CurrencyListFragment"
+        android:name="com.inflames.curenciesviewmodel.cryptolistscreen.CurrencyListFragment"
         android:label="CurrencyListFragment" >
         <action
             android:id="@+id/action_currencyListFragment_to_currencyDetail"
@@ -17,6 +17,6 @@
         android:name="com.inflames.curenciesviewmodel.currencydetailscreen.CurrencyDetail"
         android:label="CurrencyDetail" >
         <argument android:name="cryptoModel"
-            app:argType="com.inflames.curenciesviewmodel.model.CryptoModel" />
+            app:argType="com.inflames.curenciesviewmodel.network.entity.CryptoModel" />
     </fragment>
 </navigation>

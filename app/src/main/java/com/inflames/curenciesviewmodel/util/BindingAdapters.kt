@@ -12,9 +12,9 @@ import coil.request.ImageRequest
 import com.airbnb.lottie.LottieAnimationView
 import com.google.android.material.textfield.TextInputEditText
 import com.inflames.curenciesviewmodel.R
-import com.inflames.curenciesviewmodel.currencylistscreen.adapter.CryptoListAdapter
-import com.inflames.curenciesviewmodel.enums.CryptoApiStatus
-import com.inflames.curenciesviewmodel.model.CryptoModel
+import com.inflames.curenciesviewmodel.cryptolistscreen.adapter.CryptoListAdapter
+import com.inflames.curenciesviewmodel.cryptolistscreen.viewmodel.CryptoApiStatus
+import com.inflames.curenciesviewmodel.network.entity.CryptoModel
 import java.text.NumberFormat
 import java.util.*
 

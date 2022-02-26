@@ -1,7 +1,7 @@
-package com.inflames.curenciesviewmodel.model
+package com.inflames.curenciesviewmodel.network.entity
 
 import android.os.Parcelable
-import com.inflames.curenciesviewmodel.database.CryptoDatabaseModel
+import com.inflames.curenciesviewmodel.database.entity.CryptoDatabaseModel
 import com.squareup.moshi.Json
 import kotlinx.android.parcel.Parcelize
 

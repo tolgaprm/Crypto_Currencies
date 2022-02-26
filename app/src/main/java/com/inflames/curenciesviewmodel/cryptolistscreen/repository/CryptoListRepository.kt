@@ -1,12 +1,13 @@
-package com.inflames.curenciesviewmodel.currencylistscreen.repository
+package com.inflames.curenciesviewmodel.cryptolistscreen.repository
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.Transformations
 import com.inflames.curenciesviewmodel.database.CryptoDatabase
-import com.inflames.curenciesviewmodel.database.asDomainModel
-import com.inflames.curenciesviewmodel.model.CryptoModel
-import com.inflames.curenciesviewmodel.model.asDatabaseModel
+import com.inflames.curenciesviewmodel.database.entity.asDatabaseModel
+import com.inflames.curenciesviewmodel.database.entity.asDomainModel
 import com.inflames.curenciesviewmodel.network.CryptoService
+import com.inflames.curenciesviewmodel.network.entity.CryptoModel
+import com.inflames.curenciesviewmodel.network.entity.asDatabaseModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 

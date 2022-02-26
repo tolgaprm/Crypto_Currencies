@@ -1,4 +1,4 @@
-package com.inflames.curenciesviewmodel.model
+package com.inflames.curenciesviewmodel.database.entity
 
 import android.os.Parcelable
 import androidx.room.Entity

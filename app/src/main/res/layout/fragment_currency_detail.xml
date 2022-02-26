@@ -5,15 +5,13 @@
 
     <data>
 
-        <import type="android.view.View" />
-
         <variable
             name="cryptoDetail"
-            type="com.inflames.curenciesviewmodel.model.CryptoDetailDatabaseModel" />
+            type="com.inflames.curenciesviewmodel.database.entity.CryptoDetailDatabaseModel" />
 
         <variable
             name="cryptoModel"
-            type="com.inflames.curenciesviewmodel.model.CryptoModel" />
+            type="com.inflames.curenciesviewmodel.network.entity.CryptoModel" />
     </data>
 
     <androidx.core.widget.NestedScrollView
