@@ -5,11 +5,12 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.inflames.curenciesviewmodel.currencydetailscreen.repository.CryptoDetailRepository
-import com.inflames.curenciesviewmodel.cryptolistscreen.viewmodel.CryptoApiStatus
 import com.inflames.curenciesviewmodel.database.CryptoDatabase
 import com.inflames.curenciesviewmodel.network.entity.CryptoModel
 
-class CryptoDetailViewModel(app: Application, private val clickedCryptoModelById: CryptoModel) :
+class CryptoDetailViewModel(
+    app: Application,
+    private val clickedCryptoModelById: CryptoModel) :
     AndroidViewModel(app) {
 
     // Crypto Id that sent with navigation args from currencyListScreen
@@ -21,7 +22,6 @@ class CryptoDetailViewModel(app: Application, private val clickedCryptoModelById
         CryptoDatabase.getDatabase(app.applicationContext),
         clickedCryptoModelById.id
     )
-
 
     var cryptoDetail = repository.cryptoDetail
 
