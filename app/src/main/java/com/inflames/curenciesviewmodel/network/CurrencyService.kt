@@ -2,7 +2,7 @@ package com.inflames.curenciesviewmodel.network
 
 import com.inflames.curenciesviewmodel.database.entity.CryptoDetailModel
 import com.inflames.curenciesviewmodel.network.entity.CryptoModel
-import com.inflames.curenciesviewmodel.util.Constants
+import com.inflames.curenciesviewmodel.util.Constant.Companion.YOUR_API_KEY
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import retrofit2.Retrofit
@@ -13,10 +13,10 @@ const val BASE_URL = "https://api.nomics.com/v1/"
 
 interface CryptoAPi {
 
-    @GET("currencies/ticker?key=${Constants.YOUR_API_KEY}")
+    @GET("currencies/ticker?key=${YOUR_API_KEY}")
     suspend fun getCryptoList(): List<CryptoModel>
 
-    @GET("currencies?key=${Constants.YOUR_API_KEY}&attributes=id,description,website_url,github_url")
+    @GET("currencies?key=${YOUR_API_KEY}&attributes=id,description,website_url,github_url")
     suspend fun getCryptoDetails(): List<CryptoDetailModel>
 }
 
